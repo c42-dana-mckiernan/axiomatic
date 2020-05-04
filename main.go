@@ -288,7 +288,12 @@ job "dir2consul-{{ .GitRepoName }}" {
                 destination = "secrets/{{ .GitRepoName }}-token.env"
                 env = true
             }
-
+            template {
+                data = "{_ .SSHKey _}"
+                left_delimiter = "{_"
+                right_delimiter = "_}"
+                destination = "/etc/ssh/ssh_known_hosts"
+            }           
         }
     }
     type = "batch"
