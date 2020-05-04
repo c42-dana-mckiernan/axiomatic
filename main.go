@@ -256,7 +256,7 @@ job "dir2consul-{{ .GitRepoName }}" {
         task "dir2consul" {
             artifact {
                 destination = "local/{{ .GitRepoName }}"
-                source = "git::ssh://{{ .GitRepoURL }}"
+                source = "ssh://{{ .GitRepoURL }}"
                 options {
                     sshkey = "{{ .SSHKey }}"
                 }
