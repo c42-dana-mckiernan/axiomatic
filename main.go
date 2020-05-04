@@ -281,7 +281,7 @@ job "dir2consul-{{ .GitRepoName }}" {
             }
             template {
 
-                data = "CONSUL_HTTP_TOKEN={_ with secret \"config/creds/{{ .GitRepoName }}-role\" _}{_ .Data.token _}{_ end _}"
+                data = "CONSUL_HTTP_TOKEN={_ with secret \"consul/creds/{{ .GitRepoName }}-role\" _}{_ .Data.token _}{_ end _}"
 
                 left_delimiter = "{_"
                 right_delimiter = "_}"
