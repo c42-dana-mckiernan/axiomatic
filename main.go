@@ -268,7 +268,7 @@ job "dir2consul-{{ .GitRepoName }}" {
             env {
                 D2C_VERBOSE = true
                 D2C_CONSUL_KEY_PREFIX = "services/{{ .GitRepoName }}/config"
-                D2C_CONSUL_HTTP_ADDR = "http://${attr.unique.network.ip-address}:8500"
+                CONSUL_HTTP_ADDR = "http://${attr.unique.network.ip-address}:8500"
                 D2C_DIRECTORY = "/local/{{ .GitRepoName }}"
             {{- range $key, $val := .Environment }}
                 {{ $key }} = "{{ $val }}"
